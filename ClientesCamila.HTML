@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMAVI ACCESORIOS - Elegancia en cada detalle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #e9d08d;
+            --gold-dark: #b8942a;
+            --black: #111111;
+            --black-light: #333333;
+            --beige: #f5f2e9;
+            --beige-dark: #e8e2d5;
+            --white: #ffffff;
+            --grey: #767676;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--beige);
+            color: var(--black);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--beige);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.ibb.co/rGq6vrD9/rosario.png');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .gold-divider {
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+            margin: 0 auto 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--black);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--grey);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Estilos para Sobre Nosotros */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-img {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--black-light);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .value-icon {
+            color: var(--gold);
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+
+        .value-text h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Estilos para Novedades */
+        .bg-light {
+            background-color: var(--white);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background-color: var(--beige);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .news-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .news-card:hover .news-img img {
+            transform: scale(1.05);
+        }
+
+        .news-content {
+            padding: 2rem;
+        }
+
+        .news-date {
+            color: var(--gold-dark);
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            color: var(--gold-dark);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            position: relative;
+        }
+
+        .read-more::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold-dark);
+            transition: width 0.3s;
+        }
+
+        .read-more:hover::after {
+            width: 100%;
+        }
+
+        /* Estilos para Catálogo/Colección */
+        .filters {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-btn {
+            background: none;
+            border: 1px solid var(--black);
+            border-radius: 25px;
+            padding: 0.5rem 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--gold);
+            border-color: var(--gold);
+            color: var(--white);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--gold);
+            color: var(--white);
+            padding: 0.4rem 0.8rem;
+            border-radius: 25px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 5;
+        }
+
+        .product-img {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s, height 0.3s;
+        }
+
+        .product-card:hover .product-overlay {
+            height: 60px;
+            opacity: 1;
+        }
+
+        .product-action {
+            background-color: var(--gold);
+            color: var(--white);
+            border: none;
+            border-radius: 25px;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product-action:hover {
+            background-color: var(--gold-dark);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            color: var(--grey);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--black);
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .product-info .price {
+            color: var(--gold-dark);
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: inline-block;
+            margin-right: 1rem;
+        }
+
+        .product-info .stock {
+            display: inline-block;
+            color: var(--black-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .stock-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        /* Estilos para Preguntas Frecuentes */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            background-color: var(--white);
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background-color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            color: var(--gold);
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question {
+            background-color: var(--beige-dark);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        /* Estilos para Contacto */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--gold-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--black);
+            font-size: 1.2rem;
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-map {
+            height: 200px;
+            background-color: var(--grey);
+            margin-top: 2rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .contact-form {
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--grey);
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .btn {
+            background-color: var(--black);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+
+        .btn:hover {
+            background-color: var(--gold-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Estilos para Política de Privacidad */
+        .policy-content {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .policy-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: var(--black);
+        }
+
+        .policy-content h3:first-child {
+            margin-top: 0;
+        }
+
+        .policy-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .policy-content ul {
+            margin: 0 0 1.5rem 2rem;
+        }
+
+        .policy-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--beige);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-column h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--beige);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--black-light);
+            color: var(--beige);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            color: var(--grey);
+            font-size: 0.9rem;
+        }
+
+        .gold-text {
+            color: var(--gold);
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--gold);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background-color: var(--gold-dark);
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--black);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        .toast-icon {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+
+        /* Loader */
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            font-size: 1.2rem;
+            color: var(--grey);
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--gold);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                height: 400px;
+                order: -1;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 300px;
+                height: 100vh;
+                background-color: var(--black);
+                padding: 4rem 2rem;
+                transition: right 0.3s;
+                z-index: 200;
+            }
+            
+            nav.open {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .close-menu {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                color: var(--gold);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                z-index: 150;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+            }
+            
+            .overlay.show {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 20px;
+            }
+            
+            .product-img {
+                height: 250px;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .policy-content {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-gem logo-icon"></i>
+                AMAVI
+            </a>
+            <button class="mobile-menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <button class="close-menu" id="closeMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#about">Sobre nosotros</a></li>
+                    <li><a href="#collection">Colección</a></li>
+                    <li><a href="#faq">Preguntas</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="overlay" id="overlay"></div>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Elegancia en cada detalle</h1>
+            <div class="gold-divider"></div>
+            <p>Descubre nuestra selección de accesorios únicos diseñados para realzar tu estilo personal</p>
+            <a href="#collection" class="btn btn-primary">Ver Colección</a>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">Sobre <span class="gold-text">Nosotros</span></h2>
+            <p class="section-subtitle">Conoce nuestra historia y misión de crear accesorios únicos para mujeres extraordinarias</p>
+            
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="/api/placeholder/600/500" alt="AMAVI Accesorios historia">
+                </div>
+                <div class="about-text">
+                    <h3>Nuestra Historia</h3>
+                    <p>AMAVI nació en 2023 de la pasión por el diseño y la artesanía de accesorios únicos. Fundada por María Fernández, diseñadora con más de 10 años de experiencia en joyería y accesorios, cada pieza de nuestra colección es el resultado de un cuidadoso proceso de diseño y elaboración.</p>
+                    <p>Nos especializamos en crear piezas que combinan materiales de alta calidad con técnicas artesanales tradicionales y diseños contemporáneos, ofreciendo accesorios que no solo complementan tu estilo, sino que también cuentan una historia.</p>
+                    
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <div class="value-text">
+                                <h4>Calidad</h4>
+                                <p>Cada pieza está elaborada con los mejores materiales seleccionados cuidadosamente.</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <div class="value-text">
+                                <h4>Diseño</h4>
+                                <p>Creamos piezas únicas que fusionan elegancia atemporal con tendencias actuales.</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="value-text">
+                                <h4>Pasión</h4>
+                                <p>Ponemos amor y dedicación en cada detalle de nuestras creaciones.</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="value-text">
+                                <h4>Sostenibilidad</h4>
+                                <p>Comprometidos con prácticas responsables y empaques eco-amigables.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Colección/Catálogo -->
+    <section class="section" id="collection">
+        <div class="container">
+            <h2 class="section-title">Nuestra <span class="gold-text">Colección</span></h2>
+            <p class="section-subtitle">Explora nuestra colección de accesorios exclusivos diseñados para realzar tu belleza natural</p>
+            
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="Collares">Collares</button>
+                <button class="filter-btn" data-filter="Pulseras">Pulseras</button>
+                <button class="filter-btn" data-filter="Anillos">Anillos</button>
+                <button class="filter-btn" data-filter="Aretes">Aretes</button>
+                <button class="filter-btn" data-filter="Sets">Sets</button>
+                <button class="filter-btn" data-filter="Ear cuff">Ear cuff</button>
+                <button class="filter-btn" data-filter="Accesorios">Accesorios</button>
+            </div>
+            
+            <div class="product-grid">
+                <!-- Los productos se cargarán dinámicamente aquí -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Preguntas Frecuentes -->
+    <section class="section bg-light" id="faq">
+        <div class="container">
+            <h2 class="section-title">Preguntas <span class="gold-text">Frecuentes</span></h2>
+            <p class="section-subtitle">Respuestas a las consultas más comunes sobre nuestros productos y servicios</p>
+            
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <h3>¿Qué materiales utilizan en sus accesorios?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>En AMAVI utilizamos materiales de alta calidad como acero inoxidable, chapado en oro de 18k, piedras semipreciosas y cristales seleccionados. Todos nuestros materiales son hipoalergénicos y sometidos a rigurosos controles de calidad para garantizar su durabilidad y seguridad.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Realizan envíos a todo el país?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, realizamos envíos a todo el país. Los tiempos de entrega varían según la región, pero generalmente oscilan entre 2 y 5 días hábiles. Para pedidos internacionales, contáctanos directamente para coordinar el envío.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cuál es su política de devoluciones?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Aceptamos devoluciones dentro de los 15 días posteriores a la recepción del producto, siempre que esté en su estado original y sin uso. Para iniciar un proceso de devolución, simplemente contáctanos a través de nuestro formulario de contacto o por correo electrónico.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Ofrecen productos personalizados?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, ofrecemos servicios de personalización para ciertos productos de nuestra colección. Si estás interesado en un diseño personalizado, contáctanos con tus ideas y requerimientos, y nuestro equipo de diseño trabajará contigo para crear una pieza única.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cómo debo cuidar mis accesorios AMAVI?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Para mantener tus accesorios AMAVI en perfecto estado, recomendamos:</p>
+                        <ul>
+                            <li>Evitar el contacto con agua, perfumes o productos químicos</li>
+                            <li>Guardarlos en un lugar seco, preferiblemente en su empaque original</li>
+                            <li>Limpiarlos suavemente con un paño suave cuando sea necesario</li>
+                            <li>Evitar dormir con ellos puestos para prevenir deformaciones</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <p class="section-subtitle">Estamos aquí para responder tus preguntas y ayudarte a encontrar el accesorio perfecto</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Ubicación</h4>
+                            <p>Av. Principal 123, Ciudad</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Teléfono</h4>
+                            <p>+123 456 7890</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>info@amaviaccesorios.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Horario</h4>
+                            <p>Lunes a Viernes: 9am - 7pm<br>Sábados: 10am - 5pm</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-map">
+                        <!-- Aquí iría el mapa, reemplazado por un marcador de posición -->
+                        <img src="/api/placeholder/500/200" alt="Ubicación de AMAVI" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Tu email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Asunto">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Tu mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Política de Privacidad -->
+    <section class="section bg-light" id="privacy">
+        <div class="container">
+            <h2 class="section-title">Política de <span class="gold-text">Privacidad</span></h2>
+            <p class="section-subtitle">Información sobre cómo protegemos tus datos personales</p>
+            
+            <div class="policy-content">
+                <h3>Introducción</h3>
+                <p>En AMAVI Accesorios, valoramos tu privacidad y nos comprometemos a proteger tus datos personales. Esta política de privacidad explica cómo recopilamos, utilizamos y protegemos la información que nos proporcionas cuando visitas nuestro sitio web o realizas una compra.</p>
+                
+                <h3>Información que recopilamos</h3>
+                <p>Podemos recopilar los siguientes tipos de información:</p>
+                <ul>
+                    <li>Información de contacto (nombre, dirección, correo electrónico, número de teléfono)</li>
+                    <li>Información de pago (detalles de tarjeta de crédito, dirección de facturación)</li>
+                    <li>Preferencias de compra y historial de pedidos</li>
+                    <li>Información de navegación web y cookies</li>
+                </ul>
+                
+                <h3>Cómo utilizamos tu información</h3>
+                <p>Utilizamos tu información personal para:</p>
+                <ul>
+                    <li>Procesar y entregar tus pedidos</li>
+                    <li>Gestionar tu cuenta y proporcionarte servicio al cliente</li>
+                    <li>Enviarte actualizaciones y ofertas promocionales (con tu consentimiento)</li>
+                    <li>Mejorar nuestros productos y servicios</li>
+                    <li>Cumplir con nuestras obligaciones legales y resolver disputas</li>
+                </ul>
+                
+                <h3>Seguridad de datos</h3>
+                <p>Implementamos medidas técnicas y organizativas apropiadas para proteger tus datos personales contra el acceso no autorizado, la pérdida o el daño. Utilizamos tecnologías de encriptación estándar de la industria para proteger la información sensible transmitida en nuestro sitio web.</p>
+                
+                <h3>Retención de datos</h3>
+                <p>Mantendremos tus datos personales solo durante el tiempo necesario para cumplir con los fines para los que los recopilamos, incluido el cumplimiento de requisitos legales, contables o de informes.</p>
+                
+                <h3>Tus derechos</h3>
+                <p>Tienes derecho a:</p>
+                <ul>
+                    <li>Acceder a tus datos personales</li>
+                    <li>Corregir información inexacta o incompleta</li>
+                    <li>Solicitar la eliminación de tus datos</li>
+                    <li>Oponerte al procesamiento de tus datos</li>
+                    <li>Retirar tu consentimiento en cualquier momento</li>
+                </ul>
+                
+                <h3>Cambios a esta política</h3>
+                <p>Podemos actualizar esta política de privacidad de vez en cuando para reflejar cambios en nuestras prácticas o por otros motivos operativos, legales o reglamentarios. Te notificaremos sobre cambios significativos mediante un aviso visible en nuestro sitio web.</p>
+                
+                <h3>Contacto</h3>
+                <p>Si tienes alguna pregunta sobre nuestra política de privacidad o cómo manejamos tus datos, contáctanos en: privacy@amaviaccesorios.com</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>AMAVI</h3>
+                <p>Accesorios exclusivos diseñados para realzar tu belleza natural y complementar tu estilo único.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-pinterest-p"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Enlaces Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#about">Sobre nosotros</a></li>
+                    <li><a href="#collection">Colección</a></li>
+                    <li><a href="#faq">Preguntas frecuentes</a></li>
+                    <li><a href="#privacy">Política de privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Colecciones</h3>
+                <ul class="footer-links">
+                    <li><a href="#collection">Collares</a></li>
+                    <li><a href="#collection">Pulseras</a></li>
+                    <li><a href="#collection">Anillos</a></li>
+                    <li><a href="#collection">Aretes</a></li>
+                    <li><a href="#collection">Sets Exclusivos</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt gold-text"></i> Av. Principal 123, Ciudad</li>
+                    <li><i class="fas fa-phone gold-text"></i> +123 456 7890</li>
+                    <li><i class="fas fa-envelope gold-text"></i> info@amaviaccesorios.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 AMAVI Accesorios. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script>
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyDpsfXOyFUncPGRMTSoP-A7ORNESYsKIBQ",
+            authDomain: "milaacsesorios.firebaseapp.com",
+            projectId: "milaacsesorios",
+            storageBucket: "milaacsesorios.firebasestorage.app",
+            messagingSenderId: "863870950042",
+            appId: "1:863870950042:web:072af15c3b59e087ce1d23"
+        };
+
+        // Inicializar Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Función para cargar productos disponibles
+        async function loadAvailableProducts() {
+            const productsGrid = document.querySelector('.product-grid');
+            productsGrid.innerHTML = `
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Cargando colección exclusiva...</p>
+                </div>
+            `;
+
+            try {
+                const querySnapshot = await db.collection('productos').where('quantity', '>', 0).get();
+                
+                // Simulamos una pequeña demora para mostrar la animación de carga
+                setTimeout(() => {
+                    productsGrid.innerHTML = '';
+                    
+                    if (querySnapshot.empty) {
+                        productsGrid.innerHTML = `
+                            <div style="grid-column: 1/-1; text-align: center; padding: 3rem 0;">
+                                <i class="fas fa-exclamation-circle" style="font-size: 3rem; color: var(--gold); margin-bottom: 1rem;"></i>
+                                <h3>No hay productos disponibles en este momento</h3>
+                                <p>Por favor, vuelve a revisar más tarde.</p>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    querySnapshot.forEach(doc => {
+                        const product = doc.data();
+                        const isNew = product.createdAt && (new Date() - product.createdAt) < (30 * 24 * 60 * 60 * 1000); // Productos de menos de 30 días
+                        
+                        const productCard = document.createElement('div');
+                        productCard.className = 'product-card';
+                        productCard.dataset.category = product.category || 'Accesorios';
+
+                        productCard.innerHTML = `
+                            ${isNew ? '<span class="product-badge">Nuevo</span>' : ''}
+                            <div class="product-img">
+                                <img src="${product.image || '/api/placeholder/500/500'}" alt="${product.name}">
+                                <div class="product-overlay">
+                                    <button class="product-action" onclick="showProductDetail('${doc.id}')">Ver detalles</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">${product.category || 'Accesorios'}</div>
+                                <h3>${product.name}</h3>
+                                <div class="price">$${product.price ? product.price.toFixed(2) : '0.00'}</div>
+                                <div class="stock"><span class="stock-indicator"></span> Disponible: ${product.quantity}</div>
+                            </div>
+                        `;
+
+                        productsGrid.appendChild(productCard);
+                    });
+                    
+                    // Animamos las tarjetas al cargar
+                    animateCards();
+                    
+                }, 800);
+                
+            } catch (error) {
+                console.error("Error al cargar productos:", error);
+                productsGrid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 3rem 0;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #e74c3c; margin-bottom: 1rem;"></i>
+                        <h3>Ocurrió un error al cargar los productos</h3>
+                        <p>Por favor, intenta nuevamente más tarde.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Función para filtrar productos
+        function filterProducts(category) {
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    if (card.dataset.category === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Función para mostrar detalle de producto
+        function showProductDetail(productId) {
+            // Crear toast de notificación
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `
+                <i class="fas fa-info-circle toast-icon"></i>
+                <span>Detalle de producto próximamente disponible</span>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            // Mostrar el toast
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 100);
+            
+            // Ocultar el toast después de 3 segundos
+            setTimeout(() => {
+                toast.classList.remove('show');
+                
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+
+        // Función para animar las tarjetas de productos
+        function animateCards() {
+            const cards = document.querySelectorAll('.product-card');
+            
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        }
+
+        // Inicialización del botón de scroll hacia arriba
+        function initScrollToTop() {
+            const scrollTopButton = document.getElementById('scrollTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollTopButton.classList.add('visible');
+                } else {
+                    scrollTopButton.classList.remove('visible');
+                }
+            });
+            
+            scrollTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Configuración de los botones de filtro
+        function setupFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remover clase activa de todos los botones
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Añadir clase activa al botón seleccionado
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    filterProducts(filter);
+                });
+            });
+        }
+
+        // Configurar menú móvil
+        function setupMobileMenu() {
+            const menuBtn = document.getElementById('menuBtn');
+            const closeBtn = document.getElementById('closeMenu');
+            const overlay = document.getElementById('overlay');
+            const nav = document.getElementById('mainNav');
+            const navLinks = nav.querySelectorAll('a');
+            
+            menuBtn.addEventListener('click', function() {
+                nav.classList.add('open');
+                overlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeBtn.addEventListener('click', closeMenu);
+            overlay.addEventListener('click', closeMenu);
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+            
+            function closeMenu() {
+                nav.classList.remove('open');
+                overlay.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Configurar preguntas frecuentes
+        function setupFAQ() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', function() {
+                    // Cerrar otros items si están abiertos
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Alternar el estado actual
+                    item.classList.toggle('active');
+                });
+            });
+        }
+
+        // Configurar formulario de contacto
+        function setupContactForm() {
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Mostrar mensaje de éxito
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+                toast.innerHTML = `
+                    <i class="fas fa-check-circle toast-icon"></i>
+                    <span>Mensaje enviado con éxito. Nos pondremos en contacto pronto.</span>
+                `;
+                
+                document.body.appendChild(toast);
+                
+                // Mostrar el toast
+                setTimeout(() => {
+                    toast.classList.add('show');
+                }, 100);
+                
+                // Ocultar el toast después de 3 segundos
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(toast);
+                    }, 300);
+                }, 3000);
+                
+                // Limpiar el formulario
+                contactForm.reset();
+            });
+        }
+
+        // Inicialización cuando el DOM está completamente cargado
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar productos disponibles
+            loadAvailableProducts();
+            
+            // Configurar filtros
+            setupFilters();
+            
+            // Inicializar botón de scroll hacia arriba
+            initScrollToTop();
+            
+            // Configurar menú móvil
+            setupMobileMenu();
+            
+            // Configurar preguntas frecuentes
+            setupFAQ();
+            
+            // Configurar formulario de contacto
+            setupContactForm();
+        });
+    </script>
+</body>
+
+</html>
