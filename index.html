@@ -1053,7 +1053,7 @@
             <h2 class="section-title">Nuestra <span class="gold-text">Colección</span></h2>
             <p class="section-subtitle">Explora nuestra colección de accesorios exclusivos diseñados para realzar tu
                 belleza natural</p>
-
+                <input type="text" id="searchInput" placeholder="Buscar producto..." class="form-control" style="max-width: 400px; margin: 0 auto 2rem; display: block; border-radius: 25px;">
             <div class="filters">
                 <button class="filter-btn active" data-filter="all">Todos</button>
                 <button class="filter-btn" data-filter="Collares">Collares</button>
@@ -1439,7 +1439,7 @@
                             <div class="product-info">
                                 <div class="product-category">${product.category || 'Accesorios'}</div>
                                 <h3>${product.name}</h3>
-                                <div class="price">$${product.price ? product.price.toFixed(2) : '0.00'}</div>
+                                <div class="price">$${Number(product.price).toLocaleString('es-CO')}</div>
                                 <div class="stock"><span class="stock-indicator"></span> Disponible: ${product.quantity}</div>
                             </div>
                         `;
@@ -1733,6 +1733,25 @@
             });
         }
 
+        function setupSearchBar() {
+    const searchInput = document.getElementById('searchInput');
+
+    searchInput.addEventListener('input', function () {
+        const term = this.value.toLowerCase();
+        const productCards = document.querySelectorAll('.product-card');
+
+        productCards.forEach(card => {
+            const name = card.querySelector('h3').textContent.toLowerCase();
+            if (name.includes(term)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+}
+
+
         // Configurar menú móvil
         function setupMobileMenu() {
             const menuBtn = document.getElementById('menuBtn');
@@ -1806,19 +1825,26 @@
         const asunto = contactForm.querySelector('input[placeholder="Asunto"]').value.trim();
         const mensaje = contactForm.querySelector('textarea').value.trim();
 
-        // Armamos el mensaje para WhatsApp
+        if (!nombre || !email || !mensaje) {
+            alert("Por favor, completa todos los campos obligatorios.");
+            return;
+        }
+
         const whatsappMessage = `Hola, soy ${nombre} vengo de AMAVI (${email}).%0AAsunto: ${asunto}%0A${mensaje}`;
+        const whatsappNumber = '573114953805';
 
-        // Reemplaza 57xxxxxxxxxx por tu número (ejemplo: +57 3001234567 en Colombia sería 573001234567)
-        const whatsappNumber = '57 3114953805';
+        const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${whatsappMessage}`;
 
-        // Redireccionamos a WhatsApp
-        window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${whatsappMessage}`, '_blank');
+        // Intentamos abrir WhatsApp
+        const newTab = window.open(whatsappURL, '_blank');
+        if (!newTab) {
+            alert("Parece que el navegador bloqueó el intento de abrir WhatsApp. Puedes contactarnos directamente al correo info@amaviaccesorios.com");
+        }
 
-        // Opcional: limpiar el formulario
         contactForm.reset();
     });
 }
+
 
 
         // Inicialización cuando el DOM está completamente cargado
@@ -1840,6 +1866,10 @@
 
             // Configurar formulario de contacto
             setupContactForm();
+
+            // Configurar filtro busqueda
+            setupSearchBar();
+
         });
     </script>
 </body>
