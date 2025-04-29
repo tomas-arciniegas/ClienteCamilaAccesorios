@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMAVI ACCESORIOS - Elegancia en cada detalle</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap">
     <style>
         :root {
             --gold: #D4AF37;
@@ -347,7 +348,8 @@
             transition: all 0.3s;
         }
 
-        .filter-btn:hover, .filter-btn.active {
+        .filter-btn:hover,
+        .filter-btn.active {
             background-color: var(--gold);
             border-color: var(--gold);
             color: var(--white);
@@ -843,21 +845,24 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Responsive */
         @media (max-width: 992px) {
+
             .about-content,
             .contact-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .about-img {
                 height: 400px;
                 order: -1;
             }
-            
+
             .values-grid {
                 grid-template-columns: 1fr;
             }
@@ -867,15 +872,15 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
+
             .section-title {
                 font-size: 2rem;
             }
-            
+
             .mobile-menu-btn {
                 display: block;
             }
-            
+
             nav {
                 position: fixed;
                 top: 0;
@@ -887,16 +892,16 @@
                 transition: right 0.3s;
                 z-index: 200;
             }
-            
+
             nav.open {
                 right: 0;
             }
-            
+
             nav ul {
                 flex-direction: column;
                 gap: 2rem;
             }
-            
+
             .close-menu {
                 position: absolute;
                 top: 1rem;
@@ -907,7 +912,7 @@
                 font-size: 1.5rem;
                 cursor: pointer;
             }
-            
+
             .overlay {
                 position: fixed;
                 top: 0;
@@ -920,28 +925,61 @@
                 visibility: hidden;
                 transition: all 0.3s;
             }
-            
+
             .overlay.show {
                 opacity: 1;
                 visibility: visible;
             }
-            
+
             .product-grid {
                 grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
                 gap: 20px;
             }
-            
+
             .product-img {
                 height: 250px;
             }
-            
+
             .news-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .policy-content {
                 padding: 2rem;
             }
+        }
+
+        /* Solo visible en móvil */
+        .close-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .close-menu {
+                display: block;
+            }
+        }
+
+        /* Ocultar en móvil */
+        .desktop-only {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-only {
+                display: none;
+            }
+        }
+
+        .lupa-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
         }
     </style>
 </head>
@@ -982,21 +1020,50 @@
         </div>
     </section>
 
+    <!-- Sección Colección/Catálogo -->
+    <section class="section bg-light" id="collection">
+        <div class="container">
+            <h2 class="section-title">Nuestra <span class="gold-text">Colección</span></h2>
+            <p class="section-subtitle">Explora nuestra colección de accesorios exclusivos diseñados para realzar tu
+                belleza natural</p>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="Collares">Collares</button>
+                <button class="filter-btn" data-filter="Pulseras">Pulseras</button>
+                <button class="filter-btn" data-filter="Anillos">Anillos</button>
+                <button class="filter-btn" data-filter="Aretes">Aretes</button>
+                <button class="filter-btn" data-filter="Sets">Sets</button>
+                <button class="filter-btn" data-filter="Ear cuff">Ear cuff</button>
+                <button class="filter-btn" data-filter="Accesorios">Accesorios</button>
+            </div>
+
+            <div class="product-grid">
+                <!-- Los productos se cargarán dinámicamente aquí -->
+            </div>
+        </div>
+    </section>
+
     <!-- Sección Sobre Nosotros -->
     <section class="section" id="about">
         <div class="container">
             <h2 class="section-title">Sobre <span class="gold-text">Nosotros</span></h2>
-            <p class="section-subtitle">Conoce nuestra historia y misión de crear accesorios únicos para mujeres extraordinarias</p>
-            
+            <p class="section-subtitle">Conoce nuestra historia y misión de crear accesorios únicos para mujeres
+                extraordinarias</p>
+
             <div class="about-content">
                 <div class="about-img">
                     <img src="https://i.ibb.co/rGq6vrD9/rosario.png" alt="AMAVI Accesorios historia">
                 </div>
                 <div class="about-text">
                     <h3>Nuestra Historia</h3>
-                    <p>AMAVI nació en 2023 de la pasión por el diseño y la artesanía de accesorios únicos. Fundada por María Fernández, diseñadora con más de 10 años de experiencia en joyería y accesorios, cada pieza de nuestra colección es el resultado de un cuidadoso proceso de diseño y elaboración.</p>
-                    <p>Nos especializamos en crear piezas que combinan materiales de alta calidad con técnicas artesanales tradicionales y diseños contemporáneos, ofreciendo accesorios que no solo complementan tu estilo, sino que también cuentan una historia.</p>
-                    
+                    <p>AMAVI nació en 2023 de la pasión por el diseño y la artesanía de accesorios únicos. Fundada por
+                        María Fernández, diseñadora con más de 10 años de experiencia en joyería y accesorios, cada
+                        pieza de nuestra colección es el resultado de un cuidadoso proceso de diseño y elaboración.</p>
+                    <p>Nos especializamos en crear piezas que combinan materiales de alta calidad con técnicas
+                        artesanales tradicionales y diseños contemporáneos, ofreciendo accesorios que no solo
+                        complementan tu estilo, sino que también cuentan una historia.</p>
+
                     <div class="values-grid">
                         <div class="value-item">
                             <div class="value-icon">
@@ -1004,7 +1071,8 @@
                             </div>
                             <div class="value-text">
                                 <h4>Calidad</h4>
-                                <p>Cada pieza está elaborada con los mejores materiales seleccionados cuidadosamente.</p>
+                                <p>Cada pieza está elaborada con los mejores materiales seleccionados cuidadosamente.
+                                </p>
                             </div>
                         </div>
                         <div class="value-item">
@@ -1040,35 +1108,12 @@
         </div>
     </section>
 
-    <!-- Sección Colección/Catálogo -->
-    <section class="section" id="collection">
-        <div class="container">
-            <h2 class="section-title">Nuestra <span class="gold-text">Colección</span></h2>
-            <p class="section-subtitle">Explora nuestra colección de accesorios exclusivos diseñados para realzar tu belleza natural</p>
-            
-            <div class="filters">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="Collares">Collares</button>
-                <button class="filter-btn" data-filter="Pulseras">Pulseras</button>
-                <button class="filter-btn" data-filter="Anillos">Anillos</button>
-                <button class="filter-btn" data-filter="Aretes">Aretes</button>
-                <button class="filter-btn" data-filter="Sets">Sets</button>
-                <button class="filter-btn" data-filter="Ear cuff">Ear cuff</button>
-                <button class="filter-btn" data-filter="Accesorios">Accesorios</button>
-            </div>
-            
-            <div class="product-grid">
-                <!-- Los productos se cargarán dinámicamente aquí -->
-            </div>
-        </div>
-    </section>
-
     <!-- Sección Preguntas Frecuentes -->
     <section class="section bg-light" id="faq">
         <div class="container">
             <h2 class="section-title">Preguntas <span class="gold-text">Frecuentes</span></h2>
             <p class="section-subtitle">Respuestas a las consultas más comunes sobre nuestros productos y servicios</p>
-            
+
             <div class="faq-container">
                 <div class="faq-item active">
                     <div class="faq-question">
@@ -1076,7 +1121,10 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>En AMAVI utilizamos materiales de alta calidad como acero inoxidable, chapado en oro de 18k, piedras semipreciosas y cristales seleccionados. Todos nuestros materiales son hipoalergénicos y sometidos a rigurosos controles de calidad para garantizar su durabilidad y seguridad.</p>
+                        <p>En AMAVI utilizamos materiales de alta calidad como acero inoxidable, chapado en oro de 18k,
+                            piedras semipreciosas y cristales seleccionados. Todos nuestros materiales son
+                            hipoalergénicos y sometidos a rigurosos controles de calidad para garantizar su durabilidad
+                            y seguridad.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -1085,7 +1133,9 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Sí, realizamos envíos a todo el país. Los tiempos de entrega varían según la región, pero generalmente oscilan entre 2 y 5 días hábiles. Para pedidos internacionales, contáctanos directamente para coordinar el envío.</p>
+                        <p>Sí, realizamos envíos a todo el país. Los tiempos de entrega varían según la región, pero
+                            generalmente oscilan entre 2 y 5 días hábiles. Para pedidos internacionales, contáctanos
+                            directamente para coordinar el envío.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -1094,7 +1144,9 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Aceptamos devoluciones dentro de los 15 días posteriores a la recepción del producto, siempre que esté en su estado original y sin uso. Para iniciar un proceso de devolución, simplemente contáctanos a través de nuestro formulario de contacto o por correo electrónico.</p>
+                        <p>Aceptamos devoluciones dentro de los 15 días posteriores a la recepción del producto, siempre
+                            que esté en su estado original y sin uso. Para iniciar un proceso de devolución, simplemente
+                            contáctanos a través de nuestro formulario de contacto o por correo electrónico.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -1103,7 +1155,9 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Sí, ofrecemos servicios de personalización para ciertos productos de nuestra colección. Si estás interesado en un diseño personalizado, contáctanos con tus ideas y requerimientos, y nuestro equipo de diseño trabajará contigo para crear una pieza única.</p>
+                        <p>Sí, ofrecemos servicios de personalización para ciertos productos de nuestra colección. Si
+                            estás interesado en un diseño personalizado, contáctanos con tus ideas y requerimientos, y
+                            nuestro equipo de diseño trabajará contigo para crear una pieza única.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -1129,8 +1183,9 @@
     <section class="section" id="contact">
         <div class="container">
             <h2 class="section-title">Contáctanos</h2>
-            <p class="section-subtitle">Estamos aquí para responder tus preguntas y ayudarte a encontrar el accesorio perfecto</p>
-            
+            <p class="section-subtitle">Estamos aquí para responder tus preguntas y ayudarte a encontrar el accesorio
+                perfecto</p>
+
             <div class="contact-grid">
                 <div class="contact-info">
                     <h3>Información de Contacto</h3>
@@ -1153,7 +1208,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="contact-form">
                     <h3>Envíanos un Mensaje</h3>
                     <form id="contactForm">
@@ -1181,11 +1236,13 @@
         <div class="container">
             <h2 class="section-title">Política de <span class="gold-text">Privacidad</span></h2>
             <p class="section-subtitle">Información sobre cómo protegemos tus datos personales</p>
-            
+
             <div class="policy-content">
                 <h3>Introducción</h3>
-                <p>En AMAVI Accesorios, valoramos tu privacidad y nos comprometemos a proteger tus datos personales. Esta política de privacidad explica cómo recopilamos, utilizamos y protegemos la información que nos proporcionas cuando visitas nuestro sitio web o realizas una compra.</p>
-                
+                <p>En AMAVI Accesorios, valoramos tu privacidad y nos comprometemos a proteger tus datos personales.
+                    Esta política de privacidad explica cómo recopilamos, utilizamos y protegemos la información que nos
+                    proporcionas cuando visitas nuestro sitio web o realizas una compra.</p>
+
                 <h3>Información que recopilamos</h3>
                 <p>Podemos recopilar los siguientes tipos de información:</p>
                 <ul>
@@ -1194,7 +1251,7 @@
                     <li>Preferencias de compra y historial de pedidos</li>
                     <li>Información de navegación web y cookies</li>
                 </ul>
-                
+
                 <h3>Cómo utilizamos tu información</h3>
                 <p>Utilizamos tu información personal para:</p>
                 <ul>
@@ -1204,13 +1261,17 @@
                     <li>Mejorar nuestros productos y servicios</li>
                     <li>Cumplir con nuestras obligaciones legales y resolver disputas</li>
                 </ul>
-                
+
                 <h3>Seguridad de datos</h3>
-                <p>Implementamos medidas técnicas y organizativas apropiadas para proteger tus datos personales contra el acceso no autorizado, la pérdida o el daño. Utilizamos tecnologías de encriptación estándar de la industria para proteger la información sensible transmitida en nuestro sitio web.</p>
-                
+                <p>Implementamos medidas técnicas y organizativas apropiadas para proteger tus datos personales contra
+                    el acceso no autorizado, la pérdida o el daño. Utilizamos tecnologías de encriptación estándar de la
+                    industria para proteger la información sensible transmitida en nuestro sitio web.</p>
+
                 <h3>Retención de datos</h3>
-                <p>Mantendremos tus datos personales solo durante el tiempo necesario para cumplir con los fines para los que los recopilamos, incluido el cumplimiento de requisitos legales, contables o de informes.</p>
-                
+                <p>Mantendremos tus datos personales solo durante el tiempo necesario para cumplir con los fines para
+                    los que los recopilamos, incluido el cumplimiento de requisitos legales, contables o de informes.
+                </p>
+
                 <h3>Tus derechos</h3>
                 <p>Tienes derecho a:</p>
                 <ul>
@@ -1220,12 +1281,15 @@
                     <li>Oponerte al procesamiento de tus datos</li>
                     <li>Retirar tu consentimiento en cualquier momento</li>
                 </ul>
-                
+
                 <h3>Cambios a esta política</h3>
-                <p>Podemos actualizar esta política de privacidad de vez en cuando para reflejar cambios en nuestras prácticas o por otros motivos operativos, legales o reglamentarios. Te notificaremos sobre cambios significativos mediante un aviso visible en nuestro sitio web.</p>
-                
+                <p>Podemos actualizar esta política de privacidad de vez en cuando para reflejar cambios en nuestras
+                    prácticas o por otros motivos operativos, legales o reglamentarios. Te notificaremos sobre cambios
+                    significativos mediante un aviso visible en nuestro sitio web.</p>
+
                 <h3>Contacto</h3>
-                <p>Si tienes alguna pregunta sobre nuestra política de privacidad o cómo manejamos tus datos, contáctanos en: privacy@amaviaccesorios.com</p>
+                <p>Si tienes alguna pregunta sobre nuestra política de privacidad o cómo manejamos tus datos,
+                    contáctanos en: privacy@amaviaccesorios.com</p>
             </div>
         </div>
     </section>
@@ -1315,11 +1379,11 @@
 
             try {
                 const querySnapshot = await db.collection('productos').where('quantity', '>', 0).get();
-                
+
                 // Simulamos una pequeña demora para mostrar la animación de carga
                 setTimeout(() => {
                     productsGrid.innerHTML = '';
-                    
+
                     if (querySnapshot.empty) {
                         productsGrid.innerHTML = `
                             <div style="grid-column: 1/-1; text-align: center; padding: 3rem 0;">
@@ -1334,7 +1398,7 @@
                     querySnapshot.forEach(doc => {
                         const product = doc.data();
                         const isNew = product.createdAt && (new Date() - product.createdAt) < (30 * 24 * 60 * 60 * 1000); // Productos de menos de 30 días
-                        
+
                         const productCard = document.createElement('div');
                         productCard.className = 'product-card';
                         productCard.dataset.category = product.category || 'Accesorios';
@@ -1357,12 +1421,12 @@
 
                         productsGrid.appendChild(productCard);
                     });
-                    
+
                     // Animamos las tarjetas al cargar
                     animateCards();
-                    
+
                 }, 800);
-                
+
             } catch (error) {
                 console.error("Error al cargar productos:", error);
                 productsGrid.innerHTML = `
@@ -1378,7 +1442,7 @@
         // Función para filtrar productos
         function filterProducts(category) {
             const productCards = document.querySelectorAll('.product-card');
-            
+
             productCards.forEach(card => {
                 if (category === 'all') {
                     card.style.display = 'block';
@@ -1393,40 +1457,211 @@
         }
 
         // Función para mostrar detalle de producto
-        function showProductDetail(productId) {
-            // Crear toast de notificación
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.innerHTML = `
-                <i class="fas fa-info-circle toast-icon"></i>
-                <span>Detalle de producto próximamente disponible</span>
-            `;
-            
-            document.body.appendChild(toast);
-            
-            // Mostrar el toast
-            setTimeout(() => {
-                toast.classList.add('show');
-            }, 100);
-            
-            // Ocultar el toast después de 3 segundos
-            setTimeout(() => {
-                toast.classList.remove('show');
-                
-                setTimeout(() => {
-                    document.body.removeChild(toast);
-                }, 300);
-            }, 3000);
+        async function showProductDetail(productId) {
+            try {
+                const docRef = db.collection('productos').doc(productId);
+                const doc = await docRef.get();
+
+                if (!doc.exists) {
+                    alert('Producto no encontrado');
+                    return;
+                }
+
+                const product = doc.data();
+
+                // Crear overlay oscuro
+                const overlay = document.createElement('div');
+                overlay.style.position = 'fixed';
+                overlay.style.top = 0;
+                overlay.style.left = 0;
+                overlay.style.width = '100vw';
+                overlay.style.height = '100vh';
+                overlay.style.background = 'rgba(0, 0, 0, 0.6)';
+                overlay.style.display = 'flex';
+                overlay.style.justifyContent = 'center';
+                overlay.style.alignItems = 'center';
+                overlay.style.zIndex = '9999';
+                overlay.style.animation = 'fadeIn 0.3s ease';
+
+                // Crear el modal
+                const modal = document.createElement('div');
+                modal.style.background = 'var(--white)';
+                modal.style.borderRadius = '20px';
+                modal.style.maxWidth = '450px';
+                modal.style.width = '90%';
+                modal.style.padding = '2rem';
+                modal.style.position = 'relative';
+                modal.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+                modal.style.animation = 'scaleIn 0.3s ease';
+
+                modal.innerHTML = `
+            <button style="
+                position:absolute; 
+                top:10px; 
+                right:15px; 
+                background:none; 
+                border:none; 
+                font-size:2rem; 
+                color:var(--gold-dark); 
+                cursor:pointer;
+            ">&times;</button>
+            <div style="position: relative;">
+                <img src="${product.image}" 
+                    alt="${product.name}" 
+                    class="product-detail-image"
+                    style="
+                        width: 100%;
+                        max-height: 250px;
+                        object-fit: contain;
+                        display: block;
+                        margin: 0 auto 1.5rem;
+                        border-radius: 15px;
+                        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                    ">
+                <div class="lupa-icon" onclick="zoomImage('${product.image}', '${product.name}')">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <h2 style="
+                font-family:'Playfair Display', serif; 
+                font-size: 1.8rem; 
+                margin-bottom: 1rem; 
+                color: var(--black);
+                text-align: center;
+            ">${product.name}</h2>
+            <p style="text-align:center; margin-bottom: 1rem; color: var(--black-light);">
+                ${product.description}
+            </p>
+            <p style="text-align:center; font-weight:bold; color: var(--gold-dark); font-size:1.2rem;">
+                $${product.price.toLocaleString('es-CO')}
+            </p>
+            <p style="text-align:center; margin-top: 0.5rem; color: var(--grey); font-size:0.9rem;">
+                Disponibles: ${product.quantity}
+            </p>
+        `;
+
+                overlay.appendChild(modal);
+                document.body.appendChild(overlay);
+
+                // Botón para cerrar
+                modal.querySelector('button').addEventListener('click', () => {
+                    document.body.removeChild(overlay);
+                });
+
+                // Cerrar haciendo clic afuera
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) document.body.removeChild(overlay);
+                });
+
+                // Cerrar presionando Esc
+                document.addEventListener('keydown', function escHandler(e) {
+                    if (e.key === 'Escape') {
+                        document.body.removeChild(overlay);
+                        document.removeEventListener('keydown', escHandler);
+                    }
+                });
+
+                // Animaciones CSS
+                const style = document.createElement('style');
+                style.innerHTML = `
+            @keyframes fadeIn {
+                from {opacity: 0;} to {opacity: 1;}
+            }
+            @keyframes scaleIn {
+                from {transform: scale(0.8);} to {transform: scale(1);}
+            }
+        `;
+                document.head.appendChild(style);
+
+            } catch (error) {
+                console.error('Error mostrando detalle del producto:', error);
+                alert('Ocurrió un error al cargar los detalles.');
+            }
         }
+
+        // Función para ZOOM IMAGEN DETALLE
+        function zoomImage(src, alt) {
+            const zoomOverlay = document.createElement('div');
+            zoomOverlay.style.position = 'fixed';
+            zoomOverlay.style.top = 0;
+            zoomOverlay.style.left = 0;
+            zoomOverlay.style.width = '100vw';
+            zoomOverlay.style.height = '100vh';
+            zoomOverlay.style.background = 'rgba(0, 0, 0, 0.85)';
+            zoomOverlay.style.display = 'flex';
+            zoomOverlay.style.justifyContent = 'center';
+            zoomOverlay.style.alignItems = 'center';
+            zoomOverlay.style.zIndex = '99999';
+            zoomOverlay.style.cursor = 'zoom-out';
+
+            // Contenedor para la imagen + botón
+            const container = document.createElement('div');
+            container.style.position = 'relative';
+            container.style.display = 'inline-block';
+
+            // Imagen agrandada
+            const zoomImg = document.createElement('img');
+            zoomImg.src = src;
+            zoomImg.alt = alt;
+            zoomImg.style.maxWidth = '90vw';
+            zoomImg.style.maxHeight = '90vh';
+            zoomImg.style.borderRadius = '15px';
+            zoomImg.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+            zoomImg.style.objectFit = 'contain';
+            zoomImg.style.display = 'block';
+
+            // Botón de cerrar sobre la imagen
+            const closeButton = document.createElement('button');
+            closeButton.innerHTML = '&times;';
+            closeButton.style.position = 'absolute';
+            closeButton.style.top = '10px';
+            closeButton.style.right = '10px';
+            closeButton.style.background = 'rgba(255, 255, 255, 0.95)';
+            closeButton.style.color = '#000';
+            closeButton.style.border = 'none';
+            closeButton.style.borderRadius = '50%';
+            closeButton.style.width = '35px';
+            closeButton.style.height = '35px';
+            closeButton.style.fontSize = '20px';
+            closeButton.style.cursor = 'pointer';
+            closeButton.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
+            closeButton.style.zIndex = '100000';
+
+            closeButton.addEventListener('click', () => {
+                document.body.removeChild(zoomOverlay);
+            });
+
+            // Click fuera para cerrar
+            zoomOverlay.addEventListener('click', (e) => {
+                if (e.target === zoomOverlay) {
+                    document.body.removeChild(zoomOverlay);
+                }
+            });
+
+            // Cerrar con Escape
+            document.addEventListener('keydown', function escHandler(e) {
+                if (e.key === 'Escape' && document.body.contains(zoomOverlay)) {
+                    document.body.removeChild(zoomOverlay);
+                    document.removeEventListener('keydown', escHandler);
+                }
+            });
+
+            container.appendChild(zoomImg);
+            container.appendChild(closeButton);
+            zoomOverlay.appendChild(container);
+            document.body.appendChild(zoomOverlay);
+        }
+
+
 
         // Función para animar las tarjetas de productos
         function animateCards() {
             const cards = document.querySelectorAll('.product-card');
-            
+
             cards.forEach((card, index) => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(20px)';
-                
+
                 setTimeout(() => {
                     card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                     card.style.opacity = '1';
@@ -1438,16 +1673,16 @@
         // Inicialización del botón de scroll hacia arriba
         function initScrollToTop() {
             const scrollTopButton = document.getElementById('scrollTop');
-            
-            window.addEventListener('scroll', function() {
+
+            window.addEventListener('scroll', function () {
                 if (window.pageYOffset > 300) {
                     scrollTopButton.classList.add('visible');
                 } else {
                     scrollTopButton.classList.remove('visible');
                 }
             });
-            
-            scrollTopButton.addEventListener('click', function() {
+
+            scrollTopButton.addEventListener('click', function () {
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
@@ -1458,15 +1693,15 @@
         // Configuración de los botones de filtro
         function setupFilters() {
             const filterButtons = document.querySelectorAll('.filter-btn');
-            
+
             filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     // Remover clase activa de todos los botones
                     filterButtons.forEach(btn => btn.classList.remove('active'));
-                    
+
                     // Añadir clase activa al botón seleccionado
                     this.classList.add('active');
-                    
+
                     const filter = this.dataset.filter;
                     filterProducts(filter);
                 });
@@ -1480,42 +1715,54 @@
             const overlay = document.getElementById('overlay');
             const nav = document.getElementById('mainNav');
             const navLinks = nav.querySelectorAll('a');
-            
-            menuBtn.addEventListener('click', function() {
-                nav.classList.add('open');
-                overlay.classList.add('show');
-                document.body.style.overflow = 'hidden';
-            });
-            
-            closeBtn.addEventListener('click', closeMenu);
-            overlay.addEventListener('click', closeMenu);
-            
-            navLinks.forEach(link => {
-                link.addEventListener('click', closeMenu);
-            });
-            
+
             function closeMenu() {
                 nav.classList.remove('open');
                 overlay.classList.remove('show');
                 document.body.style.overflow = '';
             }
+
+            menuBtn.addEventListener('click', function () {
+                nav.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeBtn.addEventListener('click', closeMenu);
+            overlay.addEventListener('click', closeMenu);
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+
+                    closeMenu();
+
+                    // Esperamos que se cierre el menú (300ms) y luego cambiamos la URL hash
+                    setTimeout(() => {
+                        window.location.hash = targetId;
+                    }, 300);
+                });
+            });
+
         }
+
 
         // Configurar preguntas frecuentes
         function setupFAQ() {
             const faqItems = document.querySelectorAll('.faq-item');
-            
+
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
-                
-                question.addEventListener('click', function() {
+
+                question.addEventListener('click', function () {
                     // Cerrar otros items si están abiertos
                     faqItems.forEach(otherItem => {
                         if (otherItem !== item && otherItem.classList.contains('active')) {
                             otherItem.classList.remove('active');
                         }
                     });
-                    
+
                     // Alternar el estado actual
                     item.classList.toggle('active');
                 });
@@ -1525,10 +1772,10 @@
         // Configurar formulario de contacto
         function setupContactForm() {
             const contactForm = document.getElementById('contactForm');
-            
-            contactForm.addEventListener('submit', function(e) {
+
+            contactForm.addEventListener('submit', function (e) {
                 e.preventDefault();
-                
+
                 // Mostrar mensaje de éxito
                 const toast = document.createElement('div');
                 toast.className = 'toast';
@@ -1536,45 +1783,45 @@
                     <i class="fas fa-check-circle toast-icon"></i>
                     <span>Mensaje enviado con éxito. Nos pondremos en contacto pronto.</span>
                 `;
-                
+
                 document.body.appendChild(toast);
-                
+
                 // Mostrar el toast
                 setTimeout(() => {
                     toast.classList.add('show');
                 }, 100);
-                
+
                 // Ocultar el toast después de 3 segundos
                 setTimeout(() => {
                     toast.classList.remove('show');
-                    
+
                     setTimeout(() => {
                         document.body.removeChild(toast);
                     }, 300);
                 }, 3000);
-                
+
                 // Limpiar el formulario
                 contactForm.reset();
             });
         }
 
         // Inicialización cuando el DOM está completamente cargado
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Cargar productos disponibles
             loadAvailableProducts();
-            
+
             // Configurar filtros
             setupFilters();
-            
+
             // Inicializar botón de scroll hacia arriba
             initScrollToTop();
-            
+
             // Configurar menú móvil
             setupMobileMenu();
-            
+
             // Configurar preguntas frecuentes
             setupFAQ();
-            
+
             // Configurar formulario de contacto
             setupContactForm();
         });
