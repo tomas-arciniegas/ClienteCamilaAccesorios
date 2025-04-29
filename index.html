@@ -1083,8 +1083,8 @@
                 </div>
                 <div class="about-text">
                     <h3>Nuestra Historia</h3>
-                    <p>AMAVI nació en 2023 de la pasión por el diseño y la artesanía de accesorios únicos. Fundada por
-                        María Fernández, diseñadora con más de 10 años de experiencia en joyería y accesorios, cada
+                    <p>AMAVI nació en 2025 de la pasión por el diseño y la artesanía de accesorios únicos. Fundada por
+                        Maria Camila Pallares Amesquita, diseñadora con más de 10 años de experiencia en joyería y accesorios, cada
                         pieza de nuestra colección es el resultado de un cuidadoso proceso de diseño y elaboración.</p>
                     <p>Nos especializamos en crear piezas que combinan materiales de alta calidad con técnicas
                         artesanales tradicionales y diseños contemporáneos, ofreciendo accesorios que no solo
@@ -1221,7 +1221,7 @@
                         </div>
                         <div class="contact-text">
                             <h4>Teléfono</h4>
-                            <p>+123 456 7890</p>
+                            <p>+57 3114953805</p>
                         </div>
                     </div>
                     <div class="contact-detail">
@@ -1360,8 +1360,7 @@
             <div class="footer-column">
                 <h3>Contacto</h3>
                 <ul class="footer-links">
-                    <li><i class="fas fa-map-marker-alt gold-text"></i> Av. Principal 123, Ciudad</li>
-                    <li><i class="fas fa-phone gold-text"></i> +123 456 7890</li>
+                    <li><i class="fas fa-phone gold-text"></i> +57 3114953805</li>
                     <li><i class="fas fa-envelope gold-text"></i> info@amaviaccesorios.com</li>
                 </ul>
             </div>
@@ -1797,39 +1796,30 @@
 
         // Configurar formulario de contacto
         function setupContactForm() {
-            const contactForm = document.getElementById('contactForm');
+    const contactForm = document.getElementById('contactForm');
 
-            contactForm.addEventListener('submit', function (e) {
-                e.preventDefault();
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-                // Mostrar mensaje de éxito
-                const toast = document.createElement('div');
-                toast.className = 'toast';
-                toast.innerHTML = `
-                    <i class="fas fa-check-circle toast-icon"></i>
-                    <span>Mensaje enviado con éxito. Nos pondremos en contacto pronto.</span>
-                `;
+        const nombre = contactForm.querySelector('input[placeholder="Tu nombre"]').value.trim();
+        const email = contactForm.querySelector('input[placeholder="Tu email"]').value.trim();
+        const asunto = contactForm.querySelector('input[placeholder="Asunto"]').value.trim();
+        const mensaje = contactForm.querySelector('textarea').value.trim();
 
-                document.body.appendChild(toast);
+        // Armamos el mensaje para WhatsApp
+        const whatsappMessage = `Hola, soy ${nombre} vengo de AMAVI (${email}).%0AAsunto: ${asunto}%0A${mensaje}`;
 
-                // Mostrar el toast
-                setTimeout(() => {
-                    toast.classList.add('show');
-                }, 100);
+        // Reemplaza 57xxxxxxxxxx por tu número (ejemplo: +57 3001234567 en Colombia sería 573001234567)
+        const whatsappNumber = '57 3114953805';
 
-                // Ocultar el toast después de 3 segundos
-                setTimeout(() => {
-                    toast.classList.remove('show');
+        // Redireccionamos a WhatsApp
+        window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${whatsappMessage}`, '_blank');
 
-                    setTimeout(() => {
-                        document.body.removeChild(toast);
-                    }, 300);
-                }, 3000);
+        // Opcional: limpiar el formulario
+        contactForm.reset();
+    });
+}
 
-                // Limpiar el formulario
-                contactForm.reset();
-            });
-        }
 
         // Inicialización cuando el DOM está completamente cargado
         document.addEventListener('DOMContentLoaded', function () {
