@@ -1009,6 +1009,16 @@
             z-index: 10;
         }
     </style>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X6KJSQPMXV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X6KJSQPMXV');
+</script>
+  
 </head>
 
 <body>
@@ -1872,6 +1882,25 @@
 
         });
     </script>
+
+
+<div id="cookieBanner" style="position:fixed; bottom:0; left:0; width:100%; background:#111; color:#fff; padding:1rem; z-index:9999; display:none; font-size:0.9rem; text-align:center;">
+    Utilizamos cookies para mejorar tu experiencia en AMAVI. <button id="acceptCookies" style="margin-left:1rem; background:#D4AF37; color:#000; border:none; padding:0.5rem 1rem; border-radius:20px; cursor:pointer;">Aceptar</button>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (!localStorage.getItem("cookiesAccepted")) {
+            document.getElementById("cookieBanner").style.display = "block";
+        }
+
+        document.getElementById("acceptCookies").addEventListener("click", function () {
+            localStorage.setItem("cookiesAccepted", "true");
+            document.getElementById("cookieBanner").style.display = "none";
+        });
+    });
+</script>
+
 </body>
 
 </html>
