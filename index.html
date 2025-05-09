@@ -1008,6 +1008,90 @@
             cursor: pointer;
             z-index: 10;
         }
+
+
+        #reseñas {
+  background-color: #fff;
+  padding: 40px 20px;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 40px auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  font-family: 'Arial', sans-serif;
+}
+
+#reseñas h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+#reseñaForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+#reseñaForm input,
+#reseñaForm textarea,
+#reseñaForm button {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#reseñaForm textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+#reseñaForm button {
+  background-color: #ff7e9b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#reseñaForm button:hover {
+  background-color: #e86e89;
+}
+
+.reseña {
+  background-color: #fefefe;
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.reseña strong {
+  color: #222;
+  font-size: 18px;
+}
+
+.reseña em {
+  color: #888;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.reseña img {
+  max-width: 100px;
+  margin: 10px 0;
+  border-radius: 8px;
+  display: block;
+}
+
+.reseña p {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #555;
+}
+
     </style>
 
     <!-- Google tag (gtag.js) -->
@@ -1142,6 +1226,21 @@
             </div>
         </div>
     </section>
+
+    <!-- Sección Reseñas -->
+    <section class="section" id="reseñas">
+        <div class="container">
+            <h2 class="section-title">Opiniones de <span class="gold-text">Nuestros Clientes</span></h2>
+        <form id="reseñaForm">
+          <input type="text" id="nombre" placeholder="Tu nombre" required />
+          <textarea id="comentario" placeholder="Escribe tu reseña..." required></textarea>
+          <input type="file" id="imagenReseña" accept="image/*" />
+          <button type="submit">Enviar Reseña</button>
+        </form>
+        <div id="listaReseñas"></div>
+        </div>
+    </section>
+      
 
     <!-- Sección Preguntas Frecuentes -->
     <section class="section bg-light" id="faq">
@@ -1450,6 +1549,18 @@
                                 <div class="price">$${Number(product.price).toLocaleString('es-CO')}</div>
                                 <div class="stock"><span class="stock-indicator"></span> Disponible: ${product.quantity}</div>
                             </div>
+                            <button class="btn btn-primary" onclick="addToCart('${product.name}', ${product.price}, ${product.quantity})" style="
+                                margin-top: 0.8rem;
+                                width: 100%;
+                                background: #d4af37;
+                                border: none;
+                                border-radius: 50px;
+                                padding: 10px;
+                                font-weight: bold;
+                                color: white;
+                                font-size: 0.95rem;
+                                cursor: pointer;
+                            ">Agregar al carrito</button>
                         `;
 
                         productsGrid.appendChild(productCard);
@@ -1838,7 +1949,7 @@
             return;
         }
 
-        const whatsappMessage = `Hola, soy ${nombre} vengo de AMAVI (${email}).%0AAsunto: ${asunto}%0A${mensaje}`;
+        const whatsappMessage = `Hola, soy ${nombre} vengo de AMAVI (${email}).Asunto: ${asunto}${mensaje}`;
         const whatsappNumber = '573114953805';
 
         const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${whatsappMessage}`;
@@ -1879,6 +1990,69 @@
             setupSearchBar();
 
         });
+
+        const imgbbAPIKey = "cbc6b8c37e3d3d5163eb950c0d2a0444";
+const reseñaForm = document.getElementById("reseñaForm");
+const listaReseñas = document.getElementById("listaReseñas");
+
+reseñaForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const nombre = document.getElementById("nombre").value;
+  const comentario = document.getElementById("comentario").value;
+  const imagenInput = document.getElementById("imagenReseña");
+  const file = imagenInput.files[0];
+
+  let urlImagen = "";
+
+  if (file) {
+    const formData = new FormData();
+    formData.append("image", file);
+    const res = await fetch(`https://api.imgbb.com/1/upload?key=${imgbbAPIKey}`, {
+      method: "POST",
+      body: formData,
+    });
+    const data = await res.json();
+    urlImagen = data.data.url;
+  }
+
+  const nuevaReseña = {
+    nombre,
+    comentario,
+    imagen: urlImagen || "",
+    fecha: new Date().toISOString(),
+  };
+
+  firebase.database().ref("reseñas").push(nuevaReseña);
+
+  reseñaForm.reset();
+  alert("¡Gracias por tu reseña!");
+  cargarReseñas();
+});
+
+function cargarReseñas() {
+  firebase.database().ref("reseñas").once("value", (snapshot) => {
+    listaReseñas.innerHTML = "";
+    const reseñas = snapshot.val();
+    if (reseñas) {
+      const reseñasArray = Object.values(reseñas).reverse();
+      reseñasArray.forEach((r) => {
+        const div = document.createElement("div");
+        div.className = "reseña";
+        div.innerHTML = `
+          <strong>${r.nombre}</strong> <em>${new Date(r.fecha).toLocaleDateString()}</em><br>
+          ${r.imagen ? `<img src="${r.imagen}" alt="reseña" style="max-width:100px;"><br>` : ""}
+          <p>${r.comentario}</p>
+          <hr>
+        `;
+        listaReseñas.appendChild(div);
+      });
+    }
+  });
+}
+
+window.addEventListener("load", cargarReseñas);
+
     </script>
 
 
@@ -1897,7 +2071,146 @@
             document.getElementById("cookieBanner").style.display = "none";
         });
     });
+
+
+    let cart = [];
+
+function addToCart(name, price, maxQuantity) {
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+        if (existing.quantity >= maxQuantity) {
+            alert(`Máximo disponible: ${maxQuantity} unidades.`);
+            return;
+        }
+        existing.quantity++;
+    } else {
+        cart.push({ name, price, quantity: 1, maxQuantity });
+    }
+    updateCartUI();
+}
+
+function updateCartUI() {
+    const cartList = document.getElementById('cartList');
+    cartList.innerHTML = '';
+
+    cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.style = `
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        `;
+
+        li.innerHTML = `
+            <div style="flex: 1;">
+                <strong>${item.name}</strong><br>
+                <small>x${item.quantity} - $${(item.price * item.quantity).toLocaleString('es-CO')}</small>
+            </div>
+            <div style="display: flex; gap: 6px;">
+                <button onclick="decreaseQuantity(${index})" title="Quitar" style="background:#eee; border:none; border-radius:50%; width:28px; height:28px; font-weight:bold;">−</button>
+                <button onclick="increaseQuantity(${index})" title="Agregar" style="background:#eee; border:none; border-radius:50%; width:28px; height:28px; font-weight:bold;">+</button>
+                <button onclick="removeFromCart(${index})" title="Eliminar" style="background:#e74c3c; border:none; border-radius:50%; width:28px; height:28px; color:white;">✕</button>
+            </div>
+        `;
+        cartList.appendChild(li);
+    });
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+}
+
+function increaseQuantity(index) {
+    const item = cart[index];
+    if (item.quantity < item.maxQuantity) {
+        item.quantity++;
+        updateCartUI();
+    } else {
+        alert(`Solo hay ${item.maxQuantity} disponibles.`);
+    }
+}
+
+function decreaseQuantity(index) {
+    const item = cart[index];
+    if (item.quantity > 1) {
+        item.quantity--;
+    } else {
+        cart.splice(index, 1);
+    }
+    updateCartUI();
+}
+
+function sendCartToWhatsApp() {
+    const name = document.getElementById('customerName').value.trim();
+    if (!name || cart.length === 0) {
+        alert("Escribe tu nombre y agrega al menos un producto.");
+        return;
+    }
+
+    let msg = `Hola, soy ${name} y quiero separar:  `;
+    cart.forEach(item => {
+        msg += `• ${item.name} x${item.quantity} - $${(item.price * item.quantity).toLocaleString('es-CO')}\n`;
+    });
+
+    const phone = "573114953805";
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+}
+
+
+
 </script>
+
+<div id="cartPanel" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    width: 320px;
+    max-width: 90%;
+    z-index: 9999;
+    padding: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border: 2px solid #d4af37;
+">
+    <h3 style="color:#d4af37; margin-bottom: 1rem;">🛍️ Tu carrito</h3>
+    <ul id="cartList" style="
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1rem;
+        max-height: 200px;
+        overflow-y: auto;
+    "></ul>
+    <input type="text" id="customerName" placeholder="Tu nombre" style="
+        width: 100%;
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+    ">
+    <button onclick="sendCartToWhatsApp()" style="
+        width: 100%;
+        background: linear-gradient(135deg, #25D366, #1ebe57);
+        color: white;
+        font-weight: 600;
+        padding: 12px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+    ">Enviar por WhatsApp</button>
+</div>
+
+
+
 
 </body>
 
