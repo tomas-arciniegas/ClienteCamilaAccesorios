@@ -851,6 +851,19 @@
             }
         }
 
+        @media (max-width: 600px) {
+        #cartPanel {
+        right: 16px;
+        bottom: 80px;
+        }
+
+        #cartFloatingBtn {
+            bottom: 20px;
+            right: 16px;
+        }
+        }
+
+
         /* Responsive */
         @media (max-width: 992px) {
 
@@ -1090,6 +1103,19 @@
   margin-top: 8px;
   font-size: 16px;
   color: #555;
+}
+
+@keyframes cartFlash {
+  0%, 100% {
+    box-shadow: 0 0 0px #d4af37;
+  }
+  50% {
+    box-shadow: 0 0 15px 6px #d4af37;
+  }
+}
+
+#cartFloatingBtn.flash {
+  animation: cartFlash 0.6s ease-in-out;
 }
 
     </style>
@@ -2087,7 +2113,9 @@ function addToCart(name, price, maxQuantity) {
         cart.push({ name, price, quantity: 1, maxQuantity });
     }
     updateCartUI();
+    triggerCartFlash();
 }
+
 
 function updateCartUI() {
     const cartList = document.getElementById('cartList');
@@ -2160,54 +2188,78 @@ function sendCartToWhatsApp() {
     window.open(url, '_blank');
 }
 
+function toggleCartPanel() {
+    const panel = document.getElementById('cartPanel');
+    panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+}
 
+function triggerCartFlash() {
+    const btn = document.getElementById('cartFloatingBtn');
+    btn.classList.add('flash');
+
+    // Quitar la clase después de la animación para que se pueda volver a aplicar
+    setTimeout(() => {
+        btn.classList.remove('flash');
+    }, 700);
+}
 
 </script>
 
-<div id="cartPanel" style="
+<!-- Botón flotante del carrito -->
+<div id="cartFloatingBtn" onclick="toggleCartPanel()" style="
     position: fixed;
     bottom: 20px;
+    left: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #d4af37;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    z-index: 9999;
+">
+    🛒
+</div>
+
+<!-- Panel del carrito desplegable -->
+<div id="cartPanel" style="
+    position: fixed;
+    bottom: 90px;
     right: 20px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     width: 320px;
     max-width: 90%;
-    z-index: 9999;
-    padding: 1.5rem;
-    font-family: 'Montserrat', sans-serif;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    background: #fff;
     border: 2px solid #d4af37;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 9998;
+    padding: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    display: none;
+    transition: all 0.3s ease;
 ">
-    <h3 style="color:#d4af37; margin-bottom: 1rem;">🛍️ Tu carrito</h3>
-    <ul id="cartList" style="
-        list-style: none;
-        padding: 0;
-        margin: 0 0 1rem;
-        max-height: 200px;
-        overflow-y: auto;
-    "></ul>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3 style="color: #d4af37;">Tu carrito</h3>
+        <button onclick="toggleCartPanel()" style="background: none; border: none; font-size: 1.4rem; color: #999; cursor: pointer;">×</button>
+    </div>
+    <ul id="cartList" style="list-style: none; padding: 0; margin-bottom: 1rem; max-height: 200px; overflow-y: auto;"></ul>
     <input type="text" id="customerName" placeholder="Tu nombre" style="
-        width: 100%;
-        padding: 10px 15px;
-        border-radius: 10px;
-        border: 1px solid #ccc;
-        margin-bottom: 1rem;
-        font-size: 0.95rem;
+        width: 100%; padding: 10px 15px; border-radius: 10px;
+        border: 1px solid #ccc; margin-bottom: 1rem; font-size: 0.95rem;
     ">
     <button onclick="sendCartToWhatsApp()" style="
-        width: 100%;
-        background: linear-gradient(135deg, #25D366, #1ebe57);
-        color: white;
-        font-weight: 600;
-        padding: 12px;
-        border: none;
-        border-radius: 50px;
-        font-size: 1rem;
+        width: 100%; background: linear-gradient(135deg, #25D366, #1ebe57);
+        color: white; font-weight: 600; padding: 12px;
+        border: none; border-radius: 50px; font-size: 1rem;
         cursor: pointer;
-        transition: background 0.3s;
     ">Enviar por WhatsApp</button>
 </div>
+
 
 
 
